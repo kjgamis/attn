@@ -10,8 +10,8 @@ const {
 
 router.get('/', getAllMessages)
 router.post('/', createMessage)
-router.get('/id', getMessage)
-router.put('/id', editMessage)
-router.delete('/id', deleteMessage)
+router.get('/:id', getMessage)
+router.put('/:id', editMessage)
+router.delete('/:id', deleteMessage)
 
 module.exports = router
