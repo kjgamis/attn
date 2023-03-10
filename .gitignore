@@ -1,11 +1,13 @@
 # dependencies
-/node_modules
+*/node_modules
 
 # testing
-/coverage
+*/coverage
 
 # production
-/build
+*/build
+*/dist
+*/web-build
 
 # misc
 .DS_Store
@@ -16,3 +18,14 @@
 .env.production.local
 
 npm-debug.log*
+
+*.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
