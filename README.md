@@ -24,7 +24,6 @@ cd mobile
 npm install
 ```
 
-
 ## Run the project locally
 
 ### API
