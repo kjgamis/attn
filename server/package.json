@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch --coverage",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "populate": "node populate.js"
   },
   "author": "",
   "license": "ISC",
