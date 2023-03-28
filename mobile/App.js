@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { Provider } from 'react-redux'
+import { NativeBaseProvider, Box } from 'native-base'
+import { store } from './src/redux/store'
+import { getMessages } from './src/redux/message'
+import Main from './src/pages/main'
 
-export default function App() {
+store.dispatch(getMessages())
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NativeBaseProvider>
+        <Main />
+      </NativeBaseProvider>
+    </Provider>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+export default App

@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { View, Text } from 'react-native'
-import { Fab, AddIcon, FlatList } from 'native-base'
-import { setShowCreateModal, createMessage } from '../redux/message'
-import MessageDisplay from '../components/MessageDisplay'
+import { Fab, AddIcon, Text, Box, Heading } from 'native-base'
+import { SwipeListView } from 'react-native-swipe-list-view'
+import { setShowCreateModal, setShowEditModal, createMessage, editMessage, deleteMessage } from '../redux/message'
+import MessageItem from '../components/MessageItem'
+import MessageItemHidden from '../components/MessageItemHidden'
 import MessageForm from '../components/MessageForm'
 
 const Main = () => {
@@ -10,27 +11,44 @@ const Main = () => {
 
   const { messageList } = useSelector(state => state.messageReducer)
   const { loading } = useSelector(state => state.messageReducer)
-  const { showModal } = useSelector(state => state.messageReducer)
+  const { showCreateModal, showEditModal } = useSelector(state => state.messageReducer)
 
   const handleCreateMessage = (data) => {
     dispatch(createMessage(data))
   }
 
+  const handleShowEditModal = () => {
+    dispatch(setShowEditModal(!showEditModal))
+  }
+
+  const handleEditMessage = (data) => {
+    dispatch(editMessage(data))
+    handleShowEditModal()
+  }
+
+  const handleDeleteMessage = (data) => {
+    dispatch(deleteMessage(data))
+  }
+
   return (
-    <View>
+    <Box safeArea flex='1' safeAreaTop w='100%'>
+      <Heading p='4' pb='3' size='lg'>
+        ATTN
+      </Heading>
       {loading ?
         <Text>Loading...</Text> :
-        <FlatList
+        <SwipeListView
           data={messageList}
-          keyExtractor={({ _id: id }) => id}
-          renderItem={({ item }) => (
-            <MessageDisplay
-              title={item.title}
-              message={item.message}
-              phone={item.phone}
-              id={item._id}
-            />
-          )}
+          renderItem={({ item }) =>
+            <MessageItem item={item}
+              handleEditMessage={handleEditMessage}
+            />}
+          renderHiddenItem={({ item }) =>
+            <MessageItemHidden item={item}
+              handleShowEditModal={handleShowEditModal}
+              handleDeleteMessage={handleDeleteMessage}
+            />}
+          rightOpenValue={-150} previewOpenValue={-40}
         />
       }
       <MessageForm
@@ -38,11 +56,11 @@ const Main = () => {
         handleSubmit={handleCreateMessage}
       />
       <Fab
-        onPress={() => dispatch(setShowCreateModal(!showModal))}
+        onPress={() => dispatch(setShowCreateModal(!showCreateModal))}
         icon={<AddIcon />}
         colorScheme='indigo'
       />
-    </View>
+    </Box>
   )
 }
 
