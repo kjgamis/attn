@@ -1,8 +1,8 @@
 import { Box, Button, HStack, VStack, Text, Spacer, Heading } from 'native-base'
-import MessageForm from './MessageForm'
 
-const MessageItem = ({ item, handleEditMessage }) => {
-  const { title, message, phone, id } = item
+const MessageItem = ({ item }) => {
+  const { title, message, phone } = item
+
   return (
     <Box pl='4' pr='5' py='2' bg='white'>
       <Heading pb='2' size='md'>
@@ -32,15 +32,6 @@ const MessageItem = ({ item, handleEditMessage }) => {
           Send Message
         </Button>
       </HStack>
-
-      <MessageForm
-        type='edit'
-        handleSubmit={handleEditMessage}
-        title={title}
-        message={message}
-        phone={phone}
-        id={id}
-      />
     </Box>
   )
 }

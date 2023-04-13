@@ -39,12 +39,14 @@ const Main = () => {
         <Text>Loading...</Text> :
         <SwipeListView
           data={messageList}
-          renderItem={({ item }) =>
+          renderItem={({ item, index }) =>
             <MessageItem item={item}
-              handleEditMessage={handleEditMessage}
+              key={index}
             />}
-          renderHiddenItem={({ item }) =>
+          renderHiddenItem={({ item, index }) =>
             <MessageItemHidden item={item}
+              key={index}
+              handleEditMessage={handleEditMessage}
               handleShowEditModal={handleShowEditModal}
               handleDeleteMessage={handleDeleteMessage}
             />}
