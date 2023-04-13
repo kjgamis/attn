@@ -13,13 +13,8 @@ const MessageSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    validate: {
-      validator: (v) => {
-        return /\d{3}-\d{3}-\d{4}/.test(v)
-      },
-      message: props => `${props.value} is not a valid phone number!`
-    },
-    required: [true, 'User phone number required']
+    required: [true, 'must provide phone number required'],
+    maxLength: [10, 'phone number must contain 10 numbers']
   }
 })
 
