@@ -1,3 +1,4 @@
+import { Linking } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { Fab, AddIcon, Text, Box, Heading } from 'native-base'
 import { SwipeListView } from 'react-native-swipe-list-view'
@@ -30,6 +31,11 @@ const Main = () => {
     dispatch(deleteMessage(data))
   }
 
+  const handleSendMessage = (messageBody, phoneNumber) => {
+    let url = `whatsapp://send?text=${messageBody}&phone=1${phoneNumber}`
+    Linking.openURL(url)
+  }
+
   return (
     <Box safeArea flex='1' safeAreaTop w='100%'>
       <Heading p='4' pb='3' size='lg'>
@@ -42,6 +48,7 @@ const Main = () => {
           renderItem={({ item, index }) =>
             <MessageItem item={item}
               key={index}
+              handleSendMessage={handleSendMessage}
             />}
           renderHiddenItem={({ item, index }) =>
             <MessageItemHidden item={item}

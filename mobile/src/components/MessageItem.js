@@ -1,6 +1,6 @@
 import { Box, Button, HStack, VStack, Text, Spacer, Heading } from 'native-base'
 
-const MessageItem = ({ item }) => {
+const MessageItem = ({ item, handleSendMessage }) => {
   const { title, message, phone } = item
 
   return (
@@ -28,6 +28,7 @@ const MessageItem = ({ item }) => {
         <Button
           colorScheme='blue'
           variant='outline'
+          onPress={() => handleSendMessage(message, phone)}
         >
           Send Message
         </Button>
