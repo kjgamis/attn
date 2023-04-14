@@ -18,8 +18,8 @@ const Main = () => {
     dispatch(createMessage(data))
   }
 
-  const handleShowEditModal = () => {
-    dispatch(setShowEditModal(!showEditModal))
+  const handleShowEditModal = (data) => {
+    dispatch(setShowEditModal(data))
   }
 
   const handleEditMessage = (data) => {

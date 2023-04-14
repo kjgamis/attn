@@ -15,23 +15,23 @@ const MessageForm = ({ type, handleSubmit, title, message, phone, id }) => {
 
   const modalHeader = type === 'create' ? 'Create Message' : 'Edit Message'
   const modalSubmitText = type === 'create' ? 'Create' : 'Edit'
-  const showModal = type === 'create' ? showCreateModal : showEditModal
+  const showModal = type === 'create' ? showCreateModal : id === showEditModal
 
   const handleCloseModal = () => {
     if (type === 'create') {
       return dispatch(setShowCreateModal(!showCreateModal))
     }
-    return dispatch(setShowEditModal(!showEditModal))
+    return dispatch(setShowEditModal())
   }
 
   const handlePressSubmit = () => {
     if (type === 'create') {
       handleSubmit({
         title: editTitle,
-          message: editMessage,
-          phone: editPhone
+        message: editMessage,
+        phone: editPhone
       })
-    } 
+    }
     if (type === 'edit') {
       handleSubmit({
         id,

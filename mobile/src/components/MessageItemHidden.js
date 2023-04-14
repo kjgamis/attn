@@ -6,7 +6,7 @@ const MessageItemHidden = ({ item, handleDeleteMessage, handleShowEditModal, han
   return (
     <HStack flex='1' pl='2'>
       <Pressable w='70' ml='auto' cursor='pointer' justifyContent='center' alignItems='center'
-        onPress={handleShowEditModal} _pressed={{
+        onPress={() => handleShowEditModal(_id)} _pressed={{
           opacity: 0.5
         }}>
         <Text fontSize='xs' fontWeight='medium' color='coolGray.800'>
