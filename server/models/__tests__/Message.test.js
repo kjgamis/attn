@@ -6,7 +6,7 @@ let mongo = null
 let mockMessage = {
   title: 'Dog',
   message: 'Please come to the room and take the dog',
-  phone: '123-123-1234'
+  phone: '1231231234'
 }
 
 beforeAll(async () => {

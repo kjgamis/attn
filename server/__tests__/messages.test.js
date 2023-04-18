@@ -11,7 +11,7 @@ beforeAll(async () => {
   newMessage = await request(app).post('/api/messages').send({
     title: 'Dapper Dog',
     message: 'PLEASE come to the room and take the dog',
-    phone: '123-123-1234'
+    phone: '1231231234'
   })
   id = newMessage.body.data['_id']
 })
@@ -41,7 +41,7 @@ describe('POST /api/messages', () => {
     const response = await request(app).post('/api/messages').send({
       title: 'Dapper Dog',
       message: 'PLEASE come to the room and take the dog',
-      phone: '1231231234'
+      phone: '12312312344'
     })
     expect(response.statusCode).toBe(500)
   })
