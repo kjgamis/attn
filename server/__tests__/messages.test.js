@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { MongoMemoryServer } = require('mongodb-memory-server')
 const request = require('supertest')
 require('dotenv').config()
 const app = require('../app')
@@ -7,7 +8,10 @@ let newMessage, id
 const invalidId = '640a6f38be942c1b9ed130b4'
 
 beforeAll(async () => {
-  await mongoose.connect(process.env.MONGO_URI)
+  mongo = await MongoMemoryServer.create()
+  const uri = mongo.getUri()
+
+  await mongoose.connect(uri)
   newMessage = await request(app).post('/api/messages').send({
     title: 'Dapper Dog',
     message: 'PLEASE come to the room and take the dog',

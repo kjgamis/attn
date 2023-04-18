@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --forceExit --detectOpenHandles",
     "test:watch": "jest --watch --coverage",
     "start": "node index.js",
     "start:dev": "nodemon index.js",
