@@ -57,7 +57,7 @@ gcloud app deploy
 - [API Problem](https://www.npmjs.com/package/api-problem)
 - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 - [JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
-= [HTTPS](https://timonweb.com/javascript/running-expressjs-server-over-https/)
+- [HTTPS](https://timonweb.com/javascript/running-expressjs-server-over-https/)
 
 ### [React Native](https://reactnative.dev/)
 - [React Native Tutorial](https://youtu.be/VozPNrt-LfE)
@@ -68,3 +68,7 @@ gcloud app deploy
   - https://dev.to/remrkabledev/testing-with-mongodb-memory-server-4ja2
 - [Unit testing](https://www.makeuseof.com/express-apis-jest-test/)
 - [Testing Express and Mongoose](https://www.freecodecamp.org/news/how-to-test-in-express-and-mongoose-apps/ )
+
+### GCP
+- [Deploy NodeJS](https://cloud.google.com/nodejs/getting-started)
+- [Deploy Sample](https://billmartin.io/blog/how-to-build-and-deploy-a-nodejs-api-on-google-cloud)

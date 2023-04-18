@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch --coverage",
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
     "populate": "node populate.js"
   },
   "author": "",
