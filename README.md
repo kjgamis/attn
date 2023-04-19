@@ -1,8 +1,26 @@
 # ATTN
 
-An app to send an automated message from a click of a button.
+Send a message with a click of a button. Create a message that can be sent quickly without having to type the same message again.
 
-Built with Express.js and React Native
+Applicable  uses:
+- send a message to a contact in case of an emergency (such as date going south)
+- tell your partner you need alone time without having to type the same message over and over again
+
+
+The API is built with Express.js and and the front-end with build React .Native
+
+# Features
+## Create Message
+<img src='assets/create.gif' alt='Create Message GIF' width='200px'>
+
+## Edit Message
+<img src='assets/edit.gif' alt='Edit Message GIF' width='200px'>
+
+## Delete Message
+<img src='assets/delete.gif' alt='Delete Message GIF' width='200px'>
+
+## Send Message
+<img src='assets/send.gif' alt='Send Message GIF' width='200px'>
 
 # Scripts
 
